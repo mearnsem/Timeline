@@ -3,25 +3,38 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Post Table View Controller-->
+        <!--Post List Table View Controller-->
         <scene sceneID="vHT-j4-BRs">
             <objects>
-                <tableViewController id="oeQ-mM-J3N" customClass="PostTableViewController" customModule="Timeline" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="KHv-oB-1Y3">
+                <tableViewController id="oeQ-mM-J3N" customClass="PostListTableViewController" customModule="Timeline" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="301" sectionHeaderHeight="28" sectionFooterHeight="28" id="KHv-oB-1Y3">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="postCell" id="nqK-nn-iEi">
-                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="postCell" rowHeight="300" id="nqK-nn-iEi" customClass="PostTableViewCell" customModule="Timeline" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="92" width="600" height="300"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nqK-nn-iEi" id="w50-8p-WhS">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="299"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dC9-0f-dRD">
+                                            <rect key="frame" x="115" y="7" width="371" height="284"/>
+                                        </imageView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="dC9-0f-dRD" firstAttribute="top" secondItem="w50-8p-WhS" secondAttribute="topMargin" constant="-1" id="OhB-al-s5M"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="dC9-0f-dRD" secondAttribute="bottom" id="X5D-ps-kbi"/>
+                                        <constraint firstItem="dC9-0f-dRD" firstAttribute="leading" secondItem="w50-8p-WhS" secondAttribute="leadingMargin" constant="107" id="hjk-Av-onw"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="dC9-0f-dRD" secondAttribute="trailing" constant="106" id="j7u-VN-0AA"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="postImageView" destination="dC9-0f-dRD" id="7S6-Ok-zyQ"/>
                                     <segue destination="UZl-tD-avD" kind="show" id="cda-OI-3gM"/>
                                 </connections>
                             </tableViewCell>
@@ -53,7 +66,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="addPostCell" id="zeO-Mb-Wpv">
-                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                                <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zeO-Mb-Wpv" id="7tc-T0-ctZ">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
@@ -166,6 +179,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="E6C-Ui-0UP"/>
+        <segue reference="Bdf-e0-PJm"/>
     </inferredMetricsTieBreakers>
 </document>
