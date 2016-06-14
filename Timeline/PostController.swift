@@ -24,11 +24,14 @@ class PostController {
     }
     
     func createPost(image: UIImage, caption: String) {
-        
+        guard let data = UIImageJPEGRepresentation(image, 0.7) else {return}
+        let post = Post(photo: data)
+        addCommentToPost(post, text: caption)
+        saveContext()
     }
     
     func addCommentToPost(post: Post, text: String) {
-//        _ = Comment(post: post, text: text, timestamp: NSTimeIntervalSince1970)
+        _ = Comment(post: post, text: text, timestamp: NSDate())
         saveContext()
     }
     

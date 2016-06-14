@@ -10,10 +10,10 @@ import Foundation
 import CoreData
 
 
-class Post: NSManagedObject {
+class Post: SyncableObject {
 
-    convenience init?(photo: NSData, timestamp: NSDate, context: NSManagedObjectContext = Stack.sharedStack.managedObjectContext) {
-        guard let entity = NSEntityDescription.entityForName("Post", inManagedObjectContext: context) else {return nil}
+    convenience init(photo: NSData, timestamp: NSDate = NSDate(), context: NSManagedObjectContext = Stack.sharedStack.managedObjectContext) {
+        guard let entity = NSEntityDescription.entityForName("Post", inManagedObjectContext: context) else { fatalError()}
         
         self.init(entity: entity, insertIntoManagedObjectContext: context)
         

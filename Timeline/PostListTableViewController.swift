@@ -37,7 +37,6 @@ class PostListTableViewController: UITableViewController {
 
         return cell ?? PostTableViewCell()
     }
-    
 
     /*
     // Override to support conditional editing of the table view.
@@ -74,16 +73,17 @@ class PostListTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "toPostDetail" {
+            guard let indexPath = tableView.indexPathForSelectedRow else {return}
+            let destinationVC = segue.destinationViewController as? PostDetailTableViewController
+            guard let post = PostController.sharedController.fetchedResultsController.objectAtIndexPath(indexPath) as? Post else {return}
+            destinationVC?.post = post
+        }
     }
-    */
-
 }
 
 extension PostListTableViewController: NSFetchedResultsControllerDelegate {

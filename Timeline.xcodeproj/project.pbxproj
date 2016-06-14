@@ -104,10 +104,10 @@
 			isa = PBXGroup;
 			children = (
 				40CFC6031D0F6EFB0034F068 /* PostTableViewCell.swift */,
-				40CFC5E91D0F62570034F068 /* SearchResultsTableViewController.swift */,
-				40CFC5E71D0F60EF0034F068 /* AddPostTableViewController.swift */,
-				40CFC5E51D0F607C0034F068 /* PostDetailTableViewController.swift */,
 				40CFC5E31D0F60310034F068 /* PostListTableViewController.swift */,
+				40CFC5E51D0F607C0034F068 /* PostDetailTableViewController.swift */,
+				40CFC5E71D0F60EF0034F068 /* AddPostTableViewController.swift */,
+				40CFC5E91D0F62570034F068 /* SearchResultsTableViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
