@@ -11,21 +11,37 @@ import CoreData
 
 class PostListTableViewController: UITableViewController {
 
+    var fetchedResultsController: NSFetchedResultsController?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        PostController.sharedController.fetchedResultsController.delegate = self
+        setupFetchedResultsController()
+    }
+    
+    func setupFetchedResultsController() {
+        let request = NSFetchRequest(entityName: "Post")
+        let timestampSortDescriptor = NSSortDescriptor(key: "timestamp", ascending: false)
+        request.sortDescriptors = [timestampSortDescriptor]
+        
+        self.fetchedResultsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: Stack.sharedStack.managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
+        do {
+            try fetchedResultsController?.performFetch()
+        } catch let error as NSError {
+            print("Unable to perform fetch request: \(error.localizedDescription)")
+        }
+        fetchedResultsController?.delegate = self
     }
 
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        guard let sections = PostController.sharedController.fetchedResultsController.sections else {return 0}
+        guard let sections = fetchedResultsController?.sections else {return 0}
         return sections.count
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let sections = PostController.sharedController.fetchedResultsController.sections else {return 0}
+        guard let sections = fetchedResultsController?.sections else {return 0}
         return sections[section].numberOfObjects
     }
 
@@ -44,7 +60,7 @@ class PostListTableViewController: UITableViewController {
         if segue.identifier == "toPostDetail" {
             let destinationVC = segue.destinationViewController as? PostDetailTableViewController
             guard let indexPath = tableView.indexPathForSelectedRow else {return}
-            guard let post = PostController.sharedController.fetchedResultsController.objectAtIndexPath(indexPath) as? Post else {return}
+            guard let post = fetchedResultsController?.objectAtIndexPath(indexPath) as? Post else {return}
             destinationVC?.post = post
         }
     }

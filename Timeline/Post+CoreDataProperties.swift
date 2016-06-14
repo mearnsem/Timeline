@@ -2,7 +2,7 @@
 //  Post+CoreDataProperties.swift
 //  Timeline
 //
-//  Created by Emily Mearns on 6/13/16.
+//  Created by Emily Mearns on 6/14/16.
 //  Copyright © 2016 DevMountain. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
@@ -15,5 +15,6 @@ import CoreData
 extension Post {
 
     @NSManaged var photoData: NSData
+    @NSManaged var comments: NSSet?
 
 }

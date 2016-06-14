@@ -11,7 +11,6 @@ import UIKit
 class PostTableViewCell: UITableViewCell {
 
     @IBOutlet weak var postImageView: UIImageView!
-    var post = Post()
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -24,7 +23,7 @@ class PostTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
-    func updateWithPost() {
+    func updateWithPost(post: Post) {
         let image = UIImage(data: post.photoData)
         postImageView.image = image
     }

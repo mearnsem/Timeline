@@ -11,16 +11,15 @@ import CoreData
 
 class PostController {
     
-    static let sharedController = PostController()
-    let fetchedResultsController: NSFetchedResultsController
+    static let sharedPostController = PostController()
     
-    init() {
+    var posts: [Post] {
         let request = NSFetchRequest(entityName: "Post")
         let timestampSortDescriptor = NSSortDescriptor(key: "timestamp", ascending: false)
         request.sortDescriptors = [timestampSortDescriptor]
         
-        self.fetchedResultsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: Stack.sharedStack.managedObjectContext, sectionNameKeyPath: "timestamp", cacheName: nil)
-        _ = try? fetchedResultsController.performFetch()
+        let results = (try? Stack.sharedStack.managedObjectContext.executeFetchRequest(request)) as? [Post] ?? []
+        return results
     }
     
     func createPost(image: UIImage, caption: String) {
@@ -31,7 +30,7 @@ class PostController {
     }
     
     func addCommentToPost(post: Post, text: String) {
-        _ = Comment(post: post, text: text, timestamp: NSDate())
+        _ = Comment(post: post, text: text)
         saveContext()
     }
     
