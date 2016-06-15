@@ -47,11 +47,12 @@ class PostListTableViewController: UITableViewController {
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("postCell", forIndexPath: indexPath) as? PostTableViewCell
+        guard let cell = tableView.dequeueReusableCellWithIdentifier("postCell", forIndexPath: indexPath) as? PostTableViewCell, let post = fetchedResultsController?.objectAtIndexPath(indexPath) as? Post else {
+            return PostTableViewCell()
+        }
+        cell.updateWithPost(post)
 
-        cell?.updateWithPost()
-
-        return cell ?? PostTableViewCell()
+        return cell
     }
     
     // MARK: - Navigation

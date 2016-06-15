@@ -2,7 +2,7 @@
 //  Comment.swift
 //  Timeline
 //
-//  Created by Emily Mearns on 6/13/16.
+//  Created by Emily Mearns on 6/14/16.
 //  Copyright © 2016 DevMountain. All rights reserved.
 //
 
@@ -11,7 +11,7 @@ import CoreData
 
 
 class Comment: SyncableObject {
-
+    
     convenience init?(post: Post, text: String, timestamp: NSDate = NSDate(), context: NSManagedObjectContext = Stack.sharedStack.managedObjectContext) {
         guard let entity = NSEntityDescription.entityForName("Comment", inManagedObjectContext: context) else {return nil}
         
@@ -20,5 +20,5 @@ class Comment: SyncableObject {
         self.post = post
         self.text = text
     }
-
+    
 }

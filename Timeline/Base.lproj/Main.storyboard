@@ -49,7 +49,7 @@
                     <navigationItem key="navigationItem" id="cgg-UJ-xTu">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="udy-zc-kCO">
                             <connections>
-                                <segue destination="Z0Z-WD-FC8" kind="presentation" id="Bdf-e0-PJm"/>
+                                <segue destination="Z0Z-WD-FC8" kind="presentation" identifier="toAddPost" id="jyx-fP-C3v"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -58,7 +58,7 @@
             </objects>
             <point key="canvasLocation" x="1126" y="133"/>
         </scene>
-        <!--Add Post Table View Controller-->
+        <!--Add Post-->
         <scene sceneID="TVf-cf-FwN">
             <objects>
                 <tableViewController id="Z0Z-WD-FC8" customClass="AddPostTableViewController" customModule="Timeline" customModuleProvider="target" sceneMemberID="viewController">
@@ -70,11 +70,23 @@
                             <tableViewSection id="Yhx-Cw-PB5">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="addPostCell" rowHeight="250" id="GHG-Ei-3KM">
-                                        <rect key="frame" x="0.0" y="35" width="600" height="250"/>
+                                        <rect key="frame" x="0.0" y="99" width="600" height="250"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="GHG-Ei-3KM" id="ybM-5q-fLs">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="249"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ihz-fr-GfS">
+                                                    <rect key="frame" x="0.0" y="0.0" width="600" height="249"/>
+                                                    <state key="normal" title="Select Image"/>
+                                                    <connections>
+                                                        <action selector="selectImageButtonPressed:" destination="Z0Z-WD-FC8" eventType="touchUpInside" id="8bu-5y-5T3"/>
+                                                    </connections>
+                                                </button>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kio-wW-D3H">
+                                                    <rect key="frame" x="0.0" y="0.0" width="600" height="249"/>
+                                                </imageView>
+                                            </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>
@@ -82,11 +94,25 @@
                             <tableViewSection id="fes-Qc-UQN">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="addPostCell" id="rke-ur-Zai">
-                                        <rect key="frame" x="0.0" y="321" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="385" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rke-ur-Zai" id="HtG-5N-bvs">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Caption" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Dqr-kh-q0a">
+                                                    <rect key="frame" x="8" y="7" width="584" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="584" id="9ZA-9z-WUi"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Dqr-kh-q0a" firstAttribute="centerX" secondItem="HtG-5N-bvs" secondAttribute="centerX" id="dkf-kS-tUf"/>
+                                                <constraint firstItem="Dqr-kh-q0a" firstAttribute="centerY" secondItem="HtG-5N-bvs" secondAttribute="centerY" id="y7y-Hz-6d8"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>
@@ -94,11 +120,27 @@
                             <tableViewSection id="dG2-ne-jCb">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="addPostCell" id="bsk-O5-81w">
-                                        <rect key="frame" x="0.0" y="401" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="465" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bsk-O5-81w" id="WrD-a3-fDB">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YGg-oN-WqV">
+                                                    <rect key="frame" x="8" y="7" width="584" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="584" id="mY5-4d-Wwu"/>
+                                                    </constraints>
+                                                    <state key="normal" title="Add Post"/>
+                                                    <connections>
+                                                        <action selector="addPostButtonPressed:" destination="Z0Z-WD-FC8" eventType="touchUpInside" id="VeQ-fK-zpt"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="YGg-oN-WqV" firstAttribute="centerX" secondItem="WrD-a3-fDB" secondAttribute="centerX" id="5sG-1y-G1U"/>
+                                                <constraint firstItem="YGg-oN-WqV" firstAttribute="centerY" secondItem="WrD-a3-fDB" secondAttribute="centerY" id="Llz-R1-U0a"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>
@@ -109,11 +151,23 @@
                             <outlet property="delegate" destination="Z0Z-WD-FC8" id="9Lm-al-zqh"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="4a2-el-E3j"/>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Add Post" id="BlN-dQ-opg">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="6yh-6U-aZi">
+                            <connections>
+                                <action selector="cancelButtonPressed:" destination="Z0Z-WD-FC8" id="SsZ-dm-xtb"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="addPostImageView" destination="Kio-wW-D3H" id="2ax-ir-Kge"/>
+                        <outlet property="captionTextFIeld" destination="Dqr-kh-q0a" id="rs9-1d-Ap0"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1tF-wO-8A8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1788" y="-515"/>
+            <point key="canvasLocation" x="1126" y="843"/>
         </scene>
         <!--Post Detail Table View Controller-->
         <scene sceneID="0tG-N8-11W">
@@ -192,7 +246,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yed-0n-pq2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1788" y="133"/>
+            <point key="canvasLocation" x="1792" y="133"/>
         </scene>
         <!--Search Results Table View Controller-->
         <scene sceneID="q9x-q2-Exq">
@@ -220,7 +274,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="n3f-dh-siS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2450" y="-515"/>
+            <point key="canvasLocation" x="1792" y="843"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="gSq-n3-oxg">
@@ -238,7 +292,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DYa-0y-yfs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="478" y="133"/>
+            <point key="canvasLocation" x="466" y="133"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="KRz-9b-5D5">
@@ -256,10 +310,10 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Whb-Ns-uEn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1126" y="-515"/>
+            <point key="canvasLocation" x="466" y="843"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Bdf-e0-PJm"/>
+        <segue reference="E6C-Ui-0UP"/>
     </inferredMetricsTieBreakers>
 </document>
