@@ -32,6 +32,10 @@ class PostListTableViewController: UITableViewController {
         }
         fetchedResultsController?.delegate = self
     }
+    
+    func setupSearchController() {
+        
+    }
 
     // MARK: - Table view data source
 

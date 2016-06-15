@@ -49,7 +49,7 @@
                     <navigationItem key="navigationItem" id="cgg-UJ-xTu">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="udy-zc-kCO">
                             <connections>
-                                <segue destination="Z0Z-WD-FC8" kind="presentation" identifier="toAddPost" id="jyx-fP-C3v"/>
+                                <segue destination="d5r-Ka-dPW" kind="presentation" id="KyM-k9-Sxu"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -313,7 +313,4 @@
             <point key="canvasLocation" x="466" y="843"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="E6C-Ui-0UP"/>
-    </inferredMetricsTieBreakers>
 </document>

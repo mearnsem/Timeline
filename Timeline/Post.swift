@@ -9,7 +9,7 @@
 import Foundation
 import CoreData
 
-class Post: SyncableObject {
+class Post: SyncableObject, SearchableRecord {
     
     convenience init(photo: NSData, timestamp: NSDate = NSDate(), context: NSManagedObjectContext = Stack.sharedStack.managedObjectContext) {
         guard let entity = NSEntityDescription.entityForName("Post", inManagedObjectContext: context) else { fatalError()}
@@ -18,6 +18,10 @@ class Post: SyncableObject {
         
         self.photoData = photo
         self.timestamp = timestamp
+    }
+    
+    func matchesSearchTerm(searchTerm: String) -> Bool {
+        return true
     }
     
 }
