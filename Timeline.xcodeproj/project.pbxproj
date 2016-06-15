@@ -17,11 +17,12 @@
 		40CFC5F91D0F677F0034F068 /* SyncableObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40CFC5F51D0F677F0034F068 /* SyncableObject.swift */; };
 		40CFC5FF1D0F6B060034F068 /* PostController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40CFC5FE1D0F6B060034F068 /* PostController.swift */; };
 		40CFC6041D0F6EFB0034F068 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40CFC6031D0F6EFB0034F068 /* PostTableViewCell.swift */; };
-		40CFC6491D10C5F70034F068 /* Post+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40CFC6471D10C5F70034F068 /* Post+CoreDataProperties.swift */; };
 		40CFC64A1D10C5F70034F068 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40CFC6481D10C5F70034F068 /* Post.swift */; };
 		40CFC64D1D10D6070034F068 /* Comment+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40CFC64B1D10D6070034F068 /* Comment+CoreDataProperties.swift */; };
 		40CFC64E1D10D6070034F068 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40CFC64C1D10D6070034F068 /* Comment.swift */; };
 		40CFC6501D10E45C0034F068 /* SearchableRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40CFC64F1D10E45C0034F068 /* SearchableRecord.swift */; };
+		40CFC6521D11BA6E0034F068 /* CloudKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40CFC6511D11BA6E0034F068 /* CloudKitManager.swift */; };
+		40CFC6541D1210800034F068 /* Post+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40CFC6531D1210800034F068 /* Post+CoreDataProperties.swift */; };
 		68658B281CF8A1D60016C5CD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68658B271CF8A1D60016C5CD /* AppDelegate.swift */; };
 		68658B2D1CF8A1D60016C5CD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68658B2B1CF8A1D60016C5CD /* Main.storyboard */; };
 		68658B2F1CF8A1D60016C5CD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68658B2E1CF8A1D60016C5CD /* Assets.xcassets */; };
@@ -58,11 +59,12 @@
 		40CFC5F51D0F677F0034F068 /* SyncableObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyncableObject.swift; sourceTree = "<group>"; };
 		40CFC5FE1D0F6B060034F068 /* PostController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostController.swift; sourceTree = "<group>"; };
 		40CFC6031D0F6EFB0034F068 /* PostTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
-		40CFC6471D10C5F70034F068 /* Post+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Post+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		40CFC6481D10C5F70034F068 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		40CFC64B1D10D6070034F068 /* Comment+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Comment+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		40CFC64C1D10D6070034F068 /* Comment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		40CFC64F1D10E45C0034F068 /* SearchableRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchableRecord.swift; sourceTree = "<group>"; };
+		40CFC6511D11BA6E0034F068 /* CloudKitManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudKitManager.swift; sourceTree = "<group>"; };
+		40CFC6531D1210800034F068 /* Post+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Post+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		68658B241CF8A1D60016C5CD /* Timeline.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Timeline.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		68658B271CF8A1D60016C5CD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		68658B2C1CF8A1D60016C5CD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -119,7 +121,7 @@
 			children = (
 				40CFC5EC1D0F62CA0034F068 /* Model.xcdatamodeld */,
 				40CFC6481D10C5F70034F068 /* Post.swift */,
-				40CFC6471D10C5F70034F068 /* Post+CoreDataProperties.swift */,
+				40CFC6531D1210800034F068 /* Post+CoreDataProperties.swift */,
 				40CFC64C1D10D6070034F068 /* Comment.swift */,
 				40CFC64B1D10D6070034F068 /* Comment+CoreDataProperties.swift */,
 				40CFC5F51D0F677F0034F068 /* SyncableObject.swift */,
@@ -132,6 +134,7 @@
 		40CFC6001D0F6B0A0034F068 /* Model Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				40CFC6511D11BA6E0034F068 /* CloudKitManager.swift */,
 				40CFC5FE1D0F6B060034F068 /* PostController.swift */,
 			);
 			name = "Model Controllers";
@@ -326,6 +329,8 @@
 				40CFC6041D0F6EFB0034F068 /* PostTableViewCell.swift in Sources */,
 				40CFC5E41D0F60310034F068 /* PostListTableViewController.swift in Sources */,
 				40CFC5F81D0F677F0034F068 /* SyncableObject+CoreDataProperties.swift in Sources */,
+				40CFC6521D11BA6E0034F068 /* CloudKitManager.swift in Sources */,
+				40CFC6541D1210800034F068 /* Post+CoreDataProperties.swift in Sources */,
 				40CFC5F01D0F62DB0034F068 /* Stack.swift in Sources */,
 				40CFC5EA1D0F62570034F068 /* SearchResultsTableViewController.swift in Sources */,
 				40CFC64D1D10D6070034F068 /* Comment+CoreDataProperties.swift in Sources */,
@@ -336,7 +341,6 @@
 				40CFC64E1D10D6070034F068 /* Comment.swift in Sources */,
 				40CFC5E61D0F607C0034F068 /* PostDetailTableViewController.swift in Sources */,
 				40CFC5FF1D0F6B060034F068 /* PostController.swift in Sources */,
-				40CFC6491D10C5F70034F068 /* Post+CoreDataProperties.swift in Sources */,
 				40CFC5EE1D0F62CA0034F068 /* Model.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

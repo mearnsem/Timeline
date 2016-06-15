@@ -21,7 +21,7 @@ class Post: SyncableObject, SearchableRecord {
     }
     
     func matchesSearchTerm(searchTerm: String) -> Bool {
-        return true
+        return (self.comments?.array as? [Comment])?.filter({$0.matchesSearchTerm(searchTerm)}).count > 0
     }
     
 }

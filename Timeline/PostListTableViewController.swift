@@ -9,9 +9,10 @@
 import UIKit
 import CoreData
 
-class PostListTableViewController: UITableViewController {
-
+class PostListTableViewController: UITableViewController, UISearchResultsUpdating {
+    
     var fetchedResultsController: NSFetchedResultsController?
+    var searchController: UISearchController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,11 +35,25 @@ class PostListTableViewController: UITableViewController {
     }
     
     func setupSearchController() {
-        
+        let resultsController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("SearchResultsTableViewController")
+        searchController = UISearchController(searchResultsController: resultsController)
+        searchController?.searchResultsUpdater = self
+        searchController?.searchBar.sizeToFit()
+        searchController?.hidesNavigationBarDuringPresentation = true
+        tableView.tableHeaderView = searchController?.searchBar
+        definesPresentationContext = true
     }
-
+    
+    func updateSearchResultsForSearchController(searchController: UISearchController) {
+        if let resultsViewController = searchController.searchResultsController as? SearchResultsTableViewController, let searchTerm = searchController.searchBar.text?.lowercaseString, let posts = fetchedResultsController?.fetchedObjects as? [Post] {
+            let filteredPosts = posts.filter({$0.matchesSearchTerm(searchTerm)})
+            resultsViewController.resultsArray = filteredPosts
+            resultsViewController.tableView.reloadData()
+        }
+    }
+    
     // MARK: - Table view data source
-
+    
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         guard let sections = fetchedResultsController?.sections else {return 0}
         return sections.count
@@ -48,14 +63,14 @@ class PostListTableViewController: UITableViewController {
         guard let sections = fetchedResultsController?.sections else {return 0}
         return sections[section].numberOfObjects
     }
-
+    
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCellWithIdentifier("postCell", forIndexPath: indexPath) as? PostTableViewCell, let post = fetchedResultsController?.objectAtIndexPath(indexPath) as? Post else {
             return PostTableViewCell()
         }
         cell.updateWithPost(post)
-
+        
         return cell
     }
     
@@ -63,10 +78,23 @@ class PostListTableViewController: UITableViewController {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "toPostDetail" {
-            let destinationVC = segue.destinationViewController as? PostDetailTableViewController
-            guard let indexPath = tableView.indexPathForSelectedRow else {return}
-            guard let post = fetchedResultsController?.objectAtIndexPath(indexPath) as? Post else {return}
-            destinationVC?.post = post
+            if let destinationVC = segue.destinationViewController as? PostDetailTableViewController,
+                let indexPath = tableView.indexPathForSelectedRow,
+                let post = fetchedResultsController?.objectAtIndexPath(indexPath) as? Post {
+                destinationVC.post = post
+            }
+        }
+        
+        if segue.identifier == "toPostDetailFromSearch" {
+            if let destinationVC = segue.destinationViewController as? PostDetailTableViewController,
+                let sender = sender as? PostTableViewCell,
+                let indexPath = (searchController?.searchResultsController as? SearchResultsTableViewController)?.tableView.indexPathForCell(sender),
+                let searchTerm = searchController?.searchBar.text?.lowercaseString,
+                let posts = fetchedResultsController?.fetchedObjects?.filter({$0.matchesSearchTerm(searchTerm)}) as? [Post] {
+                let post = posts[indexPath.row]
+                destinationVC.post = post
+            }
+            
         }
     }
 }

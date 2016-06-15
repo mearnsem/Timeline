@@ -76,17 +76,29 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="249"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ihz-fr-GfS">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ihz-fr-GfS">
                                                     <rect key="frame" x="0.0" y="0.0" width="600" height="249"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="600" id="bh8-ci-sdH"/>
+                                                        <constraint firstAttribute="height" constant="249" id="n35-JM-i4a"/>
+                                                    </constraints>
                                                     <state key="normal" title="Select Image"/>
                                                     <connections>
                                                         <action selector="selectImageButtonPressed:" destination="Z0Z-WD-FC8" eventType="touchUpInside" id="8bu-5y-5T3"/>
                                                     </connections>
                                                 </button>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kio-wW-D3H">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Kio-wW-D3H">
                                                     <rect key="frame" x="0.0" y="0.0" width="600" height="249"/>
                                                 </imageView>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Ihz-fr-GfS" firstAttribute="centerX" secondItem="ybM-5q-fLs" secondAttribute="centerX" id="Ghx-Qq-k5u"/>
+                                                <constraint firstAttribute="trailing" secondItem="Kio-wW-D3H" secondAttribute="trailing" id="MPz-5l-tEt"/>
+                                                <constraint firstItem="Kio-wW-D3H" firstAttribute="leading" secondItem="ybM-5q-fLs" secondAttribute="leading" id="PCY-LR-kh4"/>
+                                                <constraint firstItem="Kio-wW-D3H" firstAttribute="top" secondItem="ybM-5q-fLs" secondAttribute="top" id="bz1-qm-Irn"/>
+                                                <constraint firstItem="Ihz-fr-GfS" firstAttribute="centerY" secondItem="ybM-5q-fLs" secondAttribute="centerY" id="dfR-7u-shS"/>
+                                                <constraint firstAttribute="bottom" secondItem="Kio-wW-D3H" secondAttribute="bottom" id="px2-HE-bT9"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>
@@ -100,7 +112,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Caption" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Dqr-kh-q0a">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Photo Caption" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Dqr-kh-q0a">
                                                     <rect key="frame" x="8" y="7" width="584" height="30"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="584" id="9ZA-9z-WUi"/>
@@ -110,7 +122,9 @@
                                                 </textField>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="Dqr-kh-q0a" secondAttribute="trailing" id="bGz-xe-6X3"/>
                                                 <constraint firstItem="Dqr-kh-q0a" firstAttribute="centerX" secondItem="HtG-5N-bvs" secondAttribute="centerX" id="dkf-kS-tUf"/>
+                                                <constraint firstAttribute="leadingMargin" secondItem="Dqr-kh-q0a" secondAttribute="leading" id="eh7-RY-8ap"/>
                                                 <constraint firstItem="Dqr-kh-q0a" firstAttribute="centerY" secondItem="HtG-5N-bvs" secondAttribute="centerY" id="y7y-Hz-6d8"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -163,6 +177,7 @@
                     <connections>
                         <outlet property="addPostImageView" destination="Kio-wW-D3H" id="2ax-ir-Kge"/>
                         <outlet property="captionTextFIeld" destination="Dqr-kh-q0a" id="rs9-1d-Ap0"/>
+                        <outlet property="selectImageButtonText" destination="Ihz-fr-GfS" id="PkW-9W-W2g"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1tF-wO-8A8" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -251,7 +266,7 @@
         <!--Search Results Table View Controller-->
         <scene sceneID="q9x-q2-Exq">
             <objects>
-                <tableViewController id="0mY-Th-1A5" customClass="SearchResultsTableViewController" customModule="Timeline" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="SearchResultsTableViewController" id="0mY-Th-1A5" customClass="SearchResultsTableViewController" customModule="Timeline" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="uSH-s4-taA">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

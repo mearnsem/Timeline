@@ -44,12 +44,10 @@ class PostDetailTableViewController: UITableViewController, NSFetchedResultsCont
         fetchedResultsController?.delegate = self
     }
     
-    func updateWithPost() {
-        if let post = post {
-            let image = UIImage(data: post.photoData)
-            detailImageView.image = image
-            tableView.reloadData()
-        }
+    func updateWithPost(post: Post) {
+        let image = UIImage(data: post.photoData ?? NSData())
+        detailImageView.image = image
+        tableView.reloadData()
     }
     
     // MARK: - IBActions
@@ -68,9 +66,10 @@ class PostDetailTableViewController: UITableViewController, NSFetchedResultsCont
         let okAction = UIAlertAction(title: "Add Comment", style: .Default) { (_) in
             guard let commentTextField = commentTextField?.text where commentTextField.characters.count > 0, let post = self.post else {return}
             PostController.sharedPostController.addCommentToPost(post, text: commentTextField)
-            self.tableView.reloadData()
+            
         }
         alertController.addAction(okAction)
+        self.tableView.reloadData()
         self.presentViewController(alertController, animated: true, completion: nil)
     }
     
@@ -100,7 +99,7 @@ class PostDetailTableViewController: UITableViewController, NSFetchedResultsCont
         
         if let comment = fetchedResultsController?.objectAtIndexPath(indexPath) as? Comment {
             cell.textLabel?.text = comment.text
-            cell.detailTextLabel?.text = "\(comment.timestamp)"
+            
         }
         
         return cell
