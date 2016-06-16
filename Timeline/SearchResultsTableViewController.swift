@@ -23,11 +23,10 @@ class SearchResultsTableViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCellWithIdentifier("searchResultCell", forIndexPath: indexPath) as? PostTableViewCell,
-            let result = resultsArray[indexPath.row] as? Post else {
+         guard let cell = tableView.dequeueReusableCellWithIdentifier("searchResultCell", forIndexPath: indexPath) as? PostTableViewCell,
+           let result = resultsArray[indexPath.row] as? Post else {
                 return PostTableViewCell()
         }
-        
         cell.updateWithPost(result)
         
         return cell

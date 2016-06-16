@@ -18,6 +18,7 @@ class PostListTableViewController: UITableViewController, UISearchResultsUpdatin
         super.viewDidLoad()
         
         setupFetchedResultsController()
+        setupSearchController()
     }
     
     func setupFetchedResultsController() {
@@ -85,15 +86,14 @@ class PostListTableViewController: UITableViewController, UISearchResultsUpdatin
         }
         
         if segue.identifier == "toPostDetailFromSearch" {
-            if let destinationVC = segue.destinationViewController as? PostDetailTableViewController,
+            if let postDetailVC = segue.destinationViewController as? PostDetailTableViewController,
                 let sender = sender as? PostTableViewCell,
                 let indexPath = (searchController?.searchResultsController as? SearchResultsTableViewController)?.tableView.indexPathForCell(sender),
                 let searchTerm = searchController?.searchBar.text?.lowercaseString,
                 let posts = fetchedResultsController?.fetchedObjects?.filter({$0.matchesSearchTerm(searchTerm)}) as? [Post] {
                 let post = posts[indexPath.row]
-                destinationVC.post = post
+                postDetailVC.post = post
             }
-            
         }
     }
 }
