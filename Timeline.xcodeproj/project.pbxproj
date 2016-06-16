@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		409ADE131D1323DF004EB3B0 /* CloudKitManagedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409ADE121D1323DF004EB3B0 /* CloudKitManagedObject.swift */; };
 		40CFC5E41D0F60310034F068 /* PostListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40CFC5E31D0F60310034F068 /* PostListTableViewController.swift */; };
 		40CFC5E61D0F607C0034F068 /* PostDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40CFC5E51D0F607C0034F068 /* PostDetailTableViewController.swift */; };
 		40CFC5E81D0F60EF0034F068 /* AddPostTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40CFC5E71D0F60EF0034F068 /* AddPostTableViewController.swift */; };
@@ -50,6 +51,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		409ADE121D1323DF004EB3B0 /* CloudKitManagedObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudKitManagedObject.swift; sourceTree = "<group>"; };
 		40CFC5E31D0F60310034F068 /* PostListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostListTableViewController.swift; sourceTree = "<group>"; };
 		40CFC5E51D0F607C0034F068 /* PostDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostDetailTableViewController.swift; sourceTree = "<group>"; };
 		40CFC5E71D0F60EF0034F068 /* AddPostTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPostTableViewController.swift; sourceTree = "<group>"; };
@@ -129,7 +131,6 @@
 				40CFC64B1D10D6070034F068 /* Comment+CoreDataProperties.swift */,
 				40CFC5F51D0F677F0034F068 /* SyncableObject.swift */,
 				40CFC5F41D0F677F0034F068 /* SyncableObject+CoreDataProperties.swift */,
-				40CFC64F1D10E45C0034F068 /* SearchableRecord.swift */,
 			);
 			name = "Model Objects";
 			sourceTree = "<group>";
@@ -137,8 +138,10 @@
 		40CFC6001D0F6B0A0034F068 /* Model Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				409ADE121D1323DF004EB3B0 /* CloudKitManagedObject.swift */,
 				40CFC6511D11BA6E0034F068 /* CloudKitManager.swift */,
 				40CFC5FE1D0F6B060034F068 /* PostController.swift */,
+				40CFC64F1D10E45C0034F068 /* SearchableRecord.swift */,
 			);
 			name = "Model Controllers";
 			sourceTree = "<group>";
@@ -338,6 +341,7 @@
 				40CFC5F01D0F62DB0034F068 /* Stack.swift in Sources */,
 				40CFC5EA1D0F62570034F068 /* SearchResultsTableViewController.swift in Sources */,
 				40CFC64D1D10D6070034F068 /* Comment+CoreDataProperties.swift in Sources */,
+				409ADE131D1323DF004EB3B0 /* CloudKitManagedObject.swift in Sources */,
 				40CFC5E81D0F60EF0034F068 /* AddPostTableViewController.swift in Sources */,
 				40CFC5F91D0F677F0034F068 /* SyncableObject.swift in Sources */,
 				40CFC64A1D10C5F70034F068 /* Post.swift in Sources */,

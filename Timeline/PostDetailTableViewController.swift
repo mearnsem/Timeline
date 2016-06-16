@@ -38,6 +38,8 @@ class PostDetailTableViewController: UITableViewController, NSFetchedResultsCont
         }
     }
     
+    // MARK: - Functions
+    
     func setupFetchedResultsController() {
         guard let post = post else { fatalError() }
         
@@ -79,9 +81,10 @@ class PostDetailTableViewController: UITableViewController, NSFetchedResultsCont
         let okAction = UIAlertAction(title: "Add Comment", style: .Default) { (_) in
             guard let post = self.post, let commentTextField = commentTextField?.text where commentTextField.characters.count > 0 else {return}
             PostController.sharedPostController.addCommentToPost(post, text: commentTextField)
+            self.tableView.reloadData()
         }
         alertController.addAction(okAction)
-        self.tableView.reloadData()
+        
         self.presentViewController(alertController, animated: true, completion: nil)
     }
     
@@ -95,7 +98,7 @@ class PostDetailTableViewController: UITableViewController, NSFetchedResultsCont
         
     }
     
-    // MARK: - Table view data source
+    // MARK: - Table View Data Source
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         guard let sections = fetchedResultsController?.sections else {return 0}
@@ -106,7 +109,6 @@ class PostDetailTableViewController: UITableViewController, NSFetchedResultsCont
         guard let sections = fetchedResultsController?.sections else {return 0}
         return sections[section].numberOfObjects
     }
-    
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("commentCell", forIndexPath: indexPath)

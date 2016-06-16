@@ -278,8 +278,6 @@ class CloudKitManager {
             }
         })
     }
-    
-    
 }
 
 
