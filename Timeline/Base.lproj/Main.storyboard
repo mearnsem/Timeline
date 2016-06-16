@@ -22,7 +22,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="259"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dC9-0f-dRD">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dC9-0f-dRD">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="250"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="250" id="gLl-9U-yQQ"/>
@@ -87,7 +87,7 @@
                                                         <action selector="selectImageButtonPressed:" destination="Z0Z-WD-FC8" eventType="touchUpInside" id="8bu-5y-5T3"/>
                                                     </connections>
                                                 </button>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Kio-wW-D3H">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Kio-wW-D3H">
                                                     <rect key="frame" x="0.0" y="0.0" width="600" height="249"/>
                                                 </imageView>
                                             </subviews>
@@ -159,6 +159,46 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
+                            <tableViewSection id="UbT-Ga-VG9">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="addPostCell" id="uhk-Dr-6fQ">
+                                        <rect key="frame" x="0.0" y="545" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="uhk-Dr-6fQ" id="Dtt-CQ-aB1">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ymJ-sl-zU8">
+                                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                                    <connections>
+                                                        <segue destination="clV-y3-CsP" kind="embed" id="ENO-Rv-syS"/>
+                                                    </connections>
+                                                </containerView>
+                                                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5L4-yM-63X">
+                                                    <rect key="frame" x="0.0" y="0.0" width="600" height="249"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="249" id="DHH-0J-5bA"/>
+                                                        <constraint firstAttribute="width" constant="600" id="tak-IT-68U"/>
+                                                    </constraints>
+                                                    <state key="normal" title="Select Image"/>
+                                                    <connections>
+                                                        <action selector="selectImageButtonPressed:" destination="Z0Z-WD-FC8" eventType="touchUpInside" id="4T6-yh-ith"/>
+                                                    </connections>
+                                                </button>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oeO-oj-9kc">
+                                                    <rect key="frame" x="0.0" y="0.0" width="600" height="249"/>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="ymJ-sl-zU8" firstAttribute="leading" secondItem="Dtt-CQ-aB1" secondAttribute="leading" id="EQj-8X-zin"/>
+                                                <constraint firstItem="ymJ-sl-zU8" firstAttribute="top" secondItem="Dtt-CQ-aB1" secondAttribute="top" id="XoZ-7W-KVP"/>
+                                                <constraint firstAttribute="trailing" secondItem="ymJ-sl-zU8" secondAttribute="trailing" id="ktg-Tz-4Z7"/>
+                                                <constraint firstAttribute="bottom" secondItem="ymJ-sl-zU8" secondAttribute="bottom" id="qh4-0M-Fol"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
                         </sections>
                         <connections>
                             <outlet property="dataSource" destination="Z0Z-WD-FC8" id="cZd-uo-fQv"/>
@@ -196,11 +236,17 @@
                             <rect key="frame" x="0.0" y="64" width="600" height="294"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="I3p-bb-YW7">
+                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="I3p-bb-YW7">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="250"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="250" id="u2a-j7-rzr"/>
+                                    </constraints>
                                 </imageView>
                                 <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fDO-y6-Eot">
                                     <rect key="frame" x="0.0" y="250" width="600" height="44"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="44" id="Bj3-QK-W7U"/>
+                                    </constraints>
                                     <items>
                                         <barButtonItem title="Comment" id="QhC-Yo-fb5">
                                             <connections>
@@ -326,6 +372,20 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Whb-Ns-uEn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="466" y="843"/>
+        </scene>
+        <!--Photo Select View Controller-->
+        <scene sceneID="eX7-Sw-zcI">
+            <objects>
+                <viewController id="clV-y3-CsP" customClass="PhotoSelectViewController" customModule="Timeline" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ytS-25-jTJ">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TM5-SN-UWm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1126" y="1262.5"/>
         </scene>
     </scenes>
 </document>

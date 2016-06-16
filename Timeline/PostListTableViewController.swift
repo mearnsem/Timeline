@@ -64,7 +64,6 @@ class PostListTableViewController: UITableViewController, UISearchResultsUpdatin
         return sections[section].numberOfObjects
     }
     
-    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCellWithIdentifier("postCell", forIndexPath: indexPath) as? PostTableViewCell, let post = fetchedResultsController?.objectAtIndexPath(indexPath) as? Post else {
             return PostTableViewCell()

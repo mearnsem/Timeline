@@ -23,6 +23,7 @@
 		40CFC6501D10E45C0034F068 /* SearchableRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40CFC64F1D10E45C0034F068 /* SearchableRecord.swift */; };
 		40CFC6521D11BA6E0034F068 /* CloudKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40CFC6511D11BA6E0034F068 /* CloudKitManager.swift */; };
 		40CFC6541D1210800034F068 /* Post+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40CFC6531D1210800034F068 /* Post+CoreDataProperties.swift */; };
+		40CFC6561D1228E70034F068 /* PhotoSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40CFC6551D1228E70034F068 /* PhotoSelectViewController.swift */; };
 		68658B281CF8A1D60016C5CD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68658B271CF8A1D60016C5CD /* AppDelegate.swift */; };
 		68658B2D1CF8A1D60016C5CD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68658B2B1CF8A1D60016C5CD /* Main.storyboard */; };
 		68658B2F1CF8A1D60016C5CD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68658B2E1CF8A1D60016C5CD /* Assets.xcassets */; };
@@ -65,6 +66,7 @@
 		40CFC64F1D10E45C0034F068 /* SearchableRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchableRecord.swift; sourceTree = "<group>"; };
 		40CFC6511D11BA6E0034F068 /* CloudKitManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudKitManager.swift; sourceTree = "<group>"; };
 		40CFC6531D1210800034F068 /* Post+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Post+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		40CFC6551D1228E70034F068 /* PhotoSelectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoSelectViewController.swift; sourceTree = "<group>"; };
 		68658B241CF8A1D60016C5CD /* Timeline.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Timeline.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		68658B271CF8A1D60016C5CD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		68658B2C1CF8A1D60016C5CD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 				40CFC5E51D0F607C0034F068 /* PostDetailTableViewController.swift */,
 				40CFC5E71D0F60EF0034F068 /* AddPostTableViewController.swift */,
 				40CFC5E91D0F62570034F068 /* SearchResultsTableViewController.swift */,
+				40CFC6551D1228E70034F068 /* PhotoSelectViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -330,6 +333,7 @@
 				40CFC5E41D0F60310034F068 /* PostListTableViewController.swift in Sources */,
 				40CFC5F81D0F677F0034F068 /* SyncableObject+CoreDataProperties.swift in Sources */,
 				40CFC6521D11BA6E0034F068 /* CloudKitManager.swift in Sources */,
+				40CFC6561D1228E70034F068 /* PhotoSelectViewController.swift in Sources */,
 				40CFC6541D1210800034F068 /* Post+CoreDataProperties.swift in Sources */,
 				40CFC5F01D0F62DB0034F068 /* Stack.swift in Sources */,
 				40CFC5EA1D0F62570034F068 /* SearchResultsTableViewController.swift in Sources */,

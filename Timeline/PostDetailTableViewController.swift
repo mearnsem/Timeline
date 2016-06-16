@@ -23,6 +23,10 @@ class PostDetailTableViewController: UITableViewController, NSFetchedResultsCont
         
         
         setupFetchedResultsController()
+        
+        if let post = post {
+            updateWithPost(post)
+        }
     }
     
     func setupFetchedResultsController() {
@@ -64,9 +68,8 @@ class PostDetailTableViewController: UITableViewController, NSFetchedResultsCont
         alertController.addAction(cancelAction)
         
         let okAction = UIAlertAction(title: "Add Comment", style: .Default) { (_) in
-            guard let commentTextField = commentTextField?.text where commentTextField.characters.count > 0, let post = self.post else {return}
+            guard let post = self.post, let commentTextField = commentTextField?.text where commentTextField.characters.count > 0 else {return}
             PostController.sharedPostController.addCommentToPost(post, text: commentTextField)
-            
         }
         alertController.addAction(okAction)
         self.tableView.reloadData()
@@ -74,7 +77,9 @@ class PostDetailTableViewController: UITableViewController, NSFetchedResultsCont
     }
     
     @IBAction func shareButtonPressed(sender: AnyObject) {
-        
+        guard let image = detailImageView.image else {return}
+        let controller = UIActivityViewController(activityItems: [image], applicationActivities: nil)
+        presentViewController(controller, animated: true, completion: nil)
     }
     
     @IBAction func followButtonPressed(sender: AnyObject) {
