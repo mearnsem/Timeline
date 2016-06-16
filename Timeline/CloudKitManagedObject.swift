@@ -29,9 +29,28 @@ extension CloudKitManagedObject {
     }
     
     var cloudKitRecordID: CKRecordID? {
-        guard let recordIDData = recordIDData else { return nil}
+        guard let recordIDData = recordIDData, let recordID = NSKeyedUnarchiver.unarchiveObjectWithData(recordIDData) as? CKRecordID else {return nil}
+        return recordID
+    }
+    
+    var cloudKitReference: CKReference? {
+        guard let recordID = cloudKitRecordID else {return nil}
+        return CKReference(recordID: recordID, action: .None)
+    }
+    
+    mutating func update(record: CKRecord) {
+        self.recordIDData = NSKeyedArchiver.archivedDataWithRootObject(record.recordID)
         
-        
+        let moc = Stack.sharedStack.managedObjectContext
+        do {
+            try moc.save()
+        } catch {
+            print("Unable to save managed object context: \(error)")
+        }
+    }
+    
+    func nameForManagedObject() -> String {
+        return NSUUID().UUIDString
     }
     
 }
