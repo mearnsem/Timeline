@@ -6,7 +6,7 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Timeline-->
+        <!--Post List Table View Controller-->
         <scene sceneID="vHT-j4-BRs">
             <objects>
                 <tableViewController id="oeQ-mM-J3N" customClass="PostListTableViewController" customModule="Timeline" customModuleProvider="target" sceneMemberID="viewController">
@@ -46,10 +46,10 @@
                             <outlet property="delegate" destination="oeQ-mM-J3N" id="pSc-d7-6qr"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Timeline" id="cgg-UJ-xTu">
+                    <navigationItem key="navigationItem" id="cgg-UJ-xTu">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="udy-zc-kCO">
                             <connections>
-                                <segue destination="d5r-Ka-dPW" kind="presentation" id="KyM-k9-Sxu"/>
+                                <segue destination="d5r-Ka-dPW" kind="presentation" id="hIM-tH-waX"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -58,7 +58,7 @@
             </objects>
             <point key="canvasLocation" x="1126" y="133"/>
         </scene>
-        <!--Add Post-->
+        <!--Add Post Table View Controller-->
         <scene sceneID="TVf-cf-FwN">
             <objects>
                 <tableViewController id="Z0Z-WD-FC8" customClass="AddPostTableViewController" customModule="Timeline" customModuleProvider="target" sceneMemberID="viewController">
@@ -76,20 +76,6 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="249"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ihz-fr-GfS">
-                                                    <rect key="frame" x="0.0" y="0.0" width="600" height="249"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="600" id="bh8-ci-sdH"/>
-                                                        <constraint firstAttribute="height" constant="249" id="n35-JM-i4a"/>
-                                                    </constraints>
-                                                    <state key="normal" title="Select Image"/>
-                                                    <connections>
-                                                        <action selector="selectImageButtonPressed:" destination="Z0Z-WD-FC8" eventType="touchUpInside" id="8bu-5y-5T3"/>
-                                                    </connections>
-                                                </button>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Kio-wW-D3H">
-                                                    <rect key="frame" x="0.0" y="0.0" width="600" height="249"/>
-                                                </imageView>
                                                 <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hvp-IV-5Lc">
                                                     <rect key="frame" x="0.0" y="0.0" width="600" height="249"/>
                                                     <connections>
@@ -98,23 +84,11 @@
                                                 </containerView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="Ihz-fr-GfS" firstAttribute="centerX" secondItem="ybM-5q-fLs" secondAttribute="centerX" id="Ghx-Qq-k5u"/>
-                                                <constraint firstAttribute="trailing" secondItem="Kio-wW-D3H" secondAttribute="trailing" id="MPz-5l-tEt"/>
-                                                <constraint firstItem="Kio-wW-D3H" firstAttribute="leading" secondItem="ybM-5q-fLs" secondAttribute="leading" id="PCY-LR-kh4"/>
                                                 <constraint firstAttribute="bottom" secondItem="Hvp-IV-5Lc" secondAttribute="bottom" id="T9W-An-px9"/>
                                                 <constraint firstItem="Hvp-IV-5Lc" firstAttribute="leading" secondItem="ybM-5q-fLs" secondAttribute="leading" id="a4n-RZ-Kxf"/>
-                                                <constraint firstItem="Kio-wW-D3H" firstAttribute="top" secondItem="ybM-5q-fLs" secondAttribute="top" id="bz1-qm-Irn"/>
-                                                <constraint firstItem="Ihz-fr-GfS" firstAttribute="centerY" secondItem="ybM-5q-fLs" secondAttribute="centerY" id="dfR-7u-shS"/>
-                                                <constraint firstAttribute="bottom" secondItem="Kio-wW-D3H" secondAttribute="bottom" id="px2-HE-bT9"/>
                                                 <constraint firstAttribute="trailing" secondItem="Hvp-IV-5Lc" secondAttribute="trailing" id="qkW-QY-V2T"/>
                                                 <constraint firstItem="Hvp-IV-5Lc" firstAttribute="top" secondItem="ybM-5q-fLs" secondAttribute="top" id="voG-ZV-7NI"/>
                                             </constraints>
-                                            <variation key="default">
-                                                <mask key="subviews">
-                                                    <exclude reference="Ihz-fr-GfS"/>
-                                                    <exclude reference="Kio-wW-D3H"/>
-                                                </mask>
-                                            </variation>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>
@@ -182,7 +156,7 @@
                         </connections>
                     </tableView>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Add Post" id="BlN-dQ-opg">
+                    <navigationItem key="navigationItem" id="BlN-dQ-opg">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="6yh-6U-aZi">
                             <connections>
                                 <action selector="cancelButtonPressed:" destination="Z0Z-WD-FC8" id="SsZ-dm-xtb"/>
@@ -191,14 +165,12 @@
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="addPostImageView" destination="Kio-wW-D3H" id="2ax-ir-Kge"/>
                         <outlet property="captionTextFIeld" destination="Dqr-kh-q0a" id="yb0-4G-Oao"/>
-                        <outlet property="selectImageButtonText" destination="Ihz-fr-GfS" id="PkW-9W-W2g"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1tF-wO-8A8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1126" y="843"/>
+            <point key="canvasLocation" x="1792" y="843"/>
         </scene>
         <!--Post Detail Table View Controller-->
         <scene sceneID="0tG-N8-11W">
@@ -314,7 +286,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="n3f-dh-siS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1792" y="843"/>
+            <point key="canvasLocation" x="2454" y="843"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="gSq-n3-oxg">
@@ -350,7 +322,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Whb-Ns-uEn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="466" y="843"/>
+            <point key="canvasLocation" x="1126" y="837"/>
         </scene>
         <!--Photo Select View Controller-->
         <scene sceneID="eX7-Sw-zcI">
@@ -390,7 +362,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TM5-SN-UWm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1126" y="1382.5"/>
+            <point key="canvasLocation" x="1792" y="1388.5"/>
         </scene>
     </scenes>
 </document>
