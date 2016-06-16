@@ -11,7 +11,6 @@ import UIKit
 class PhotoSelectViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     @IBOutlet weak var addPostImageView: UIImageView!
-    @IBOutlet weak var captionTextFIeld: UITextField!
     @IBOutlet weak var selectImageButtonText: UIButton!
 
     weak var delegate: PhotoSelectViewControllerDelegate?

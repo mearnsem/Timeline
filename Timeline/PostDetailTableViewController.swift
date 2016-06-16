@@ -11,7 +11,11 @@ import CoreData
 
 class PostDetailTableViewController: UITableViewController, NSFetchedResultsControllerDelegate {
     
+    @IBOutlet weak var commentButton: UIBarButtonItem!
+    @IBOutlet weak var shareButton: UIBarButtonItem!
+    @IBOutlet weak var followPostButton: UIBarButtonItem!
     @IBOutlet weak var detailImageView: UIImageView!
+    
     var fetchedResultsController: NSFetchedResultsController?
     var post: Post?
     
@@ -21,6 +25,11 @@ class PostDetailTableViewController: UITableViewController, NSFetchedResultsCont
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 50
         
+//        if let font = UIFont(name: "Avenir", size: 14) {
+//            commentButton.setTitleTextAttributes([NSFontAttributeName: font], forState: .Normal)
+//            shareButton.setTitleTextAttributes([NSFontAttributeName: font], forState: .Normal)
+//            followPostButton.setTitleTextAttributes([NSFontAttributeName: font], forState: .Normal)
+//        }
         
         setupFetchedResultsController()
         

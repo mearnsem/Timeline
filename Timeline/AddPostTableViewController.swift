@@ -8,11 +8,9 @@
 
 import UIKit
 
-class AddPostTableViewController: UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-
-    @IBOutlet weak var addPostImageView: UIImageView!
+class AddPostTableViewController: UITableViewController, PhotoSelectViewControllerDelegate {
+    
     @IBOutlet weak var captionTextFIeld: UITextField!
-    @IBOutlet weak var selectImageButtonText: UIButton!
     
     var image: UIImage?
     
@@ -21,14 +19,9 @@ class AddPostTableViewController: UITableViewController, UIImagePickerController
     }
     
     // MARK: - IBActions
-    
-    @IBAction func selectImageButtonPressed(sender: AnyObject) {
-        setupImagePicker()
-        selectImageButtonText.setTitle("", forState: .Normal)
-    }
 
     @IBAction func addPostButtonPressed(sender: AnyObject) {
-        if let image = addPostImageView.image, let caption = captionTextFIeld.text {
+        if let image = image, let caption = captionTextFIeld.text {
             PostController.sharedPostController.createPost(image, caption: caption)
             self.dismissViewControllerAnimated(true, completion: nil)
             self.tableView.reloadData()
@@ -44,50 +37,19 @@ class AddPostTableViewController: UITableViewController, UIImagePickerController
         dismissViewControllerAnimated(true, completion: nil)
     }
     
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
-        guard let image = info[UIImagePickerControllerOriginalImage] as? UIImage else {return}
-        addPostImageView.image = image
-        dismissViewControllerAnimated(true, completion: nil)
+    func photoSelectViewControllerSelectedImage(image: UIImage) {
+        self.image = image
     }
+   
     
-    func setupImagePicker() {
-        let imagePicker = UIImagePickerController()
-        imagePicker.delegate = self
-        
-        let actionSheet = UIAlertController(title: "Please choose image source", message: nil, preferredStyle: .ActionSheet)
-        
-        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
-        actionSheet.addAction(cancelAction)
-        
-        let photoLibraryAction = UIAlertAction(title: "Photo Library", style: .Default) { (_) in
-            imagePicker.sourceType = .PhotoLibrary
-            self.presentViewController(imagePicker, animated: true, completion: nil)
-        }
-        if UIImagePickerController.isSourceTypeAvailable(.PhotoLibrary) {
-            actionSheet.addAction(photoLibraryAction)
-        }
-        
-        let cameraAction = UIAlertAction(title: "Camera", style: .Default) { (_) in
-            imagePicker.sourceType = .Camera
-            self.presentViewController(imagePicker, animated: true, completion: nil)
-        }
-        actionSheet.addAction(cameraAction)
-        if UIImagePickerController.isSourceTypeAvailable(.Camera) {
-            actionSheet.addAction(cameraAction)
-        }
-        
-        presentViewController(actionSheet, animated: true, completion: nil)
-        
-    }
-
-    /*
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "embedPhotoSelect" {
+            let photoSelectVC = segue.destinationViewController as? PhotoSelectViewController
+            photoSelectVC?.delegate = self
+        }
     }
-    */
+ 
 
 }
