@@ -43,4 +43,9 @@ class PostController {
         }
     }
     
+    func postWithName(name: String) -> Post? {
+        let request = NSFetchRequest(entityName: "Post")
+        
+    }
+    
 }

@@ -35,6 +35,7 @@ class CloudKitManager {
             }
         }
     }
+    //if I'm logged in, fetch my record (FN 2817)
     
     func fetchUsernameFromRecordID(recordID: CKRecordID, completion: ((firstName: String?, lastname: String?) -> Void)?) {
         let operation = CKDiscoverUserInfosOperation(emailAddresses: nil, userRecordIDs: [recordID])
@@ -48,6 +49,7 @@ class CloudKitManager {
         }
         CKContainer.defaultContainer().addOperation(operation)
     }
+    //from FN 2817 we get Finn
     
     func fetchAllDiscoverableUsers(completion: ((userInfoRecords: [CKDiscoveredUserInfo]?) -> Void)?) {
         let operation = CKDiscoverAllContactsOperation()
@@ -59,6 +61,7 @@ class CloudKitManager {
         }
         CKContainer.defaultContainer().addOperation(operation)
     }
+    //get all storm troopers
     
     // MARK: - Fetch Records
     
@@ -70,6 +73,7 @@ class CloudKitManager {
             }
         }
     }
+    //brings back record for whatever item has that ID (starship, trooper, etc)
     
     func fetchRecordsWithType(type: String, predicate: NSPredicate = NSPredicate(value: true), recordFetchedBlock: ((record: CKRecord) -> Void)?, completion: ((records: [CKRecord]?, error: NSError?) -> Void)?) {
         
@@ -100,6 +104,7 @@ class CloudKitManager {
         }
         self.publicDatabase.addOperation(queryOperation)
     }
+    //brings back all records of that type (all trooper records, all helmet records)
     
     func fetchCurrentUserRecords(type: String, completion: ((records: [CKRecord]?, error: NSError?) -> Void)?) {
         fetchLoggedInUserRecord { (record, error) in
@@ -116,6 +121,7 @@ class CloudKitManager {
             }
         }
     }
+    //calls for logged in user's record (Finn's record), then all of the records that belong to the user (everything associated with Finn)
     
     func fetchRecordsFromDateRange(type: String, fromDate: NSDate, toDate: NSDate, completion: ((records: [CKRecord]?, error: NSError?) -> Void)?) {
         let startDatePredicate = NSPredicate(format: "%K > %@", argumentArray: [keyCreationDate, fromDate])
@@ -128,6 +134,7 @@ class CloudKitManager {
             }
         }
     }
+    //all records (starship, trooper, etc) from this start date to this end date
     
     // MARK: - Delete
     
@@ -138,6 +145,7 @@ class CloudKitManager {
             }
         }
     }
+    //destroys the record linked to that ID
     
     func deleteRecordsWithID(recordIDs: [CKRecordID], completion: ((records: [CKRecord]?, recordIDs: [CKRecordID]?, error: NSError?) -> Void)?) {
         let operation = CKModifyRecordsOperation(recordsToSave: nil, recordIDsToDelete: recordIDs)
@@ -153,6 +161,7 @@ class CloudKitManager {
         //runs on all devices
         publicDatabase.addOperation(operation)
     }
+    //destroys records linked to that ID
     
     // MARK: - Save & Modify
     
@@ -191,6 +200,7 @@ class CloudKitManager {
         
         publicDatabase.addOperation(operation)
     }
+    //Finn went to the dentist, update his dental records
     
     // MARK: - CloudKit Permissions
     
@@ -246,6 +256,7 @@ class CloudKitManager {
             }
         }
     }
+    //are you available to play?
     
     func handleCloudKitPermissionStatus(permissionStatus: CKApplicationPermissionStatus, error: NSError?) {
         if permissionStatus == .Granted {
@@ -266,6 +277,7 @@ class CloudKitManager {
             displayCloudKitNotAvailableError(errorText)
         }
     }
+    //find out yes/no of availability. if no, prepare excuse
     
     func displayCloudKitPermissionNotGrantedError(errorText: String) {
         dispatch_async(dispatch_get_main_queue(), {
@@ -278,13 +290,5 @@ class CloudKitManager {
             }
         })
     }
+    //giving excuse
 }
-
-
-
-
-
-
-
-
-

@@ -10,15 +10,15 @@ import Foundation
 import CoreData
 import CloudKit
 
-protocol CloudKitManagedObject {
+@objc protocol CloudKitManagedObject {
     
     var timestamp: NSDate {get set}
     var recordIDData: NSData? {get set}
     var recordName: String {get set}
     var recordType: String {get}
-    var cloudKitRecord: CKRecord? {get}
+    var cloudKitRecord: CKRecord? {get} //coredata version of dictionarycopy
     
-    func updateWithRecord(record: CKRecord)
+    init?(record: CKRecord, context: NSManagedObjectContext)
     
 }
 
@@ -38,7 +38,7 @@ extension CloudKitManagedObject {
         return CKReference(recordID: recordID, action: .None)
     }
     
-    mutating func update(record: CKRecord) {
+    func update(record: CKRecord) {
         self.recordIDData = NSKeyedArchiver.archivedDataWithRootObject(record.recordID)
         
         let moc = Stack.sharedStack.managedObjectContext

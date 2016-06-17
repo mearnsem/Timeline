@@ -108,6 +108,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		409ADE141D137FAF004EB3B0 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				409ADE121D1323DF004EB3B0 /* CloudKitManagedObject.swift */,
+				40CFC64F1D10E45C0034F068 /* SearchableRecord.swift */,
+			);
+			name = Protocols;
+			sourceTree = "<group>";
+		};
 		40CFC5EB1D0F62720034F068 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -138,10 +147,8 @@
 		40CFC6001D0F6B0A0034F068 /* Model Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				409ADE121D1323DF004EB3B0 /* CloudKitManagedObject.swift */,
 				40CFC6511D11BA6E0034F068 /* CloudKitManager.swift */,
 				40CFC5FE1D0F6B060034F068 /* PostController.swift */,
-				40CFC64F1D10E45C0034F068 /* SearchableRecord.swift */,
 			);
 			name = "Model Controllers";
 			sourceTree = "<group>";
@@ -174,6 +181,7 @@
 				40CFC5EF1D0F62DB0034F068 /* Stack.swift */,
 				40CFC5F11D0F63000034F068 /* Model Objects */,
 				40CFC6001D0F6B0A0034F068 /* Model Controllers */,
+				409ADE141D137FAF004EB3B0 /* Protocols */,
 				40CFC5EB1D0F62720034F068 /* View Controllers */,
 				68658B2E1CF8A1D60016C5CD /* Assets.xcassets */,
 				68658B301CF8A1D60016C5CD /* LaunchScreen.storyboard */,

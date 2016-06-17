@@ -8,23 +8,66 @@
 
 import Foundation
 import CoreData
+import CloudKit
 
-
-class Comment: SyncableObject, SearchableRecord {
+class Comment: SyncableObject, SearchableRecord, CloudKitManagedObject {
     
-    convenience init?(post: Post, text: String, timestamp: NSDate = NSDate(), context: NSManagedObjectContext = Stack.sharedStack.managedObjectContext) {
-        guard let entity = NSEntityDescription.entityForName("Comment", inManagedObjectContext: context) else {return nil}
+    static let keyType = "Comment"
+    static let keyText = "text"
+    static let keyTimestamp = "timestamp"
+    static let keyPost = "post"
+    
+    convenience init(post: Post, text: String, timestamp: NSDate = NSDate(), context: NSManagedObjectContext = Stack.sharedStack.managedObjectContext) {
+        guard let entity = NSEntityDescription.entityForName("Comment", inManagedObjectContext: context) else {
+            fatalError()
+        }
         
         self.init(entity: entity, insertIntoManagedObjectContext: context)
         
         self.post = post
         self.text = text
         self.timestamp = timestamp
-        self.recordName = NSUUID().UUIDString
+        self.recordName = nameForManagedObject()
     }
     
     func matchesSearchTerm(searchTerm: String) -> Bool {
         return text.containsString(searchTerm) ?? false
     }
+    
+    var recordType: String = Comment.keyType
+    
+    var cloudKitRecord: CKRecord? {
+        let recordID = CKRecordID(recordName: recordName)
+        let record = CKRecord(recordType: recordType, recordID: recordID)
+        
+        record[Comment.keyText] = text
+        record[Comment.keyTimestamp] = timestamp
+        
+        guard let post = post, postRecord = post.cloudKitRecord else {
+            fatalError()
+        }
+        record[Comment.keyPost] = CKReference(record: postRecord, action: .DeleteSelf)
+        
+        return record
+    }
+    
+    convenience required init?(record: CKRecord, context: NSManagedObjectContext) {
+        guard let timestamp = record.creationDate, text = record[Comment.keyText] as? String, postReference = record[Comment.keyPost] as? CKReference else {return}
+        
+        guard let entity = NSEntityDescription.entityForName(Comment.keyType, inManagedObjectContext: context) else {
+            fatalError()
+        }
+        
+        self.init(entity: entity, insertIntoManagedObjectContext: context)
+        
+        self.timestamp = timestamp
+        self.text = text
+        self.recordIDData = NSKeyedArchiver.archivedDataWithRootObject(record.recordID)
+        self.recordName = record.recordID.recordName
+        
+    }
+    
+    
+
     
 }
