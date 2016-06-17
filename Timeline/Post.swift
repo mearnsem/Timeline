@@ -32,19 +32,6 @@ class Post: SyncableObject, SearchableRecord, CloudKitManagedObject {
         return (self.comments?.array as? [Comment])?.filter({$0.matchesSearchTerm(searchTerm)}).count > 0
     }
     
-    var recordType: String = Post.keyType
-    
-    var cloudKitRecord: CKRecord? {
-        let asset = CKAsset(fileURL: temporaryPhotoURL)
-        let recordID = CKRecordID(recordName: recordName)
-        let record = CKRecord(recordType: recordType, recordID: recordID)
-        
-        record[Post.keyTimestamp] = timestamp
-        record[Post.keyPhoto] = asset
-        
-        return record
-    }
-    
     lazy var temporaryPhotoURL: NSURL = {
         
         // Must write to temporary directory to be able to pass image file path url to CKAsset
@@ -57,6 +44,21 @@ class Post: SyncableObject, SearchableRecord, CloudKitManagedObject {
         
         return fileURL
     }()
+    
+    // MARK: - CloudKitManagedObject Methods
+    
+    var recordType: String = Post.keyType
+    
+    var cloudKitRecord: CKRecord? {
+        let asset = CKAsset(fileURL: temporaryPhotoURL)
+        let recordID = CKRecordID(recordName: recordName)
+        let record = CKRecord(recordType: recordType, recordID: recordID)
+        
+        record[Post.keyTimestamp] = timestamp
+        record[Post.keyPhoto] = asset
+        
+        return record
+    }
     
     convenience required init?(record: CKRecord, context: NSManagedObjectContext = Stack.sharedStack.managedObjectContext) {
         guard let timestamp = record.creationDate, photoData = record[Post.keyPhoto] as? CKAsset else {return nil}

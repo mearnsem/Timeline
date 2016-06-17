@@ -15,6 +15,6 @@ import CoreData
 extension Comment {
 
     @NSManaged var text: String
-    @NSManaged var post: Post
+    @NSManaged var post: Post?
 
 }
