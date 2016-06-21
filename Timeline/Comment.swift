@@ -12,13 +12,13 @@ import CloudKit
 
 class Comment: SyncableObject, SearchableRecord, CloudKitManagedObject {
     
-    static let keyComment = "Comment"
+    static let keyType = "Comment"
     static let keyText = "text"
     static let keyTimestamp = "timestamp"
     static let keyPost = "post"
     
     convenience init(post: Post, text: String, timestamp: NSDate = NSDate(), context: NSManagedObjectContext = Stack.sharedStack.managedObjectContext) {
-        guard let entity = NSEntityDescription.entityForName(Comment.keyComment, inManagedObjectContext: context) else {
+        guard let entity = NSEntityDescription.entityForName(Comment.keyType, inManagedObjectContext: context) else {
             fatalError()
         }
         
@@ -36,7 +36,7 @@ class Comment: SyncableObject, SearchableRecord, CloudKitManagedObject {
     
     // MARK: - CloudKitManagedObject Methods
     
-    var recordType: String = Comment.keyComment
+    var recordType: String = Comment.keyType
     
     var cloudKitRecord: CKRecord? {
         let recordID = CKRecordID(recordName: recordName)
@@ -56,7 +56,7 @@ class Comment: SyncableObject, SearchableRecord, CloudKitManagedObject {
     convenience required init?(record: CKRecord, context: NSManagedObjectContext) {
         guard let timestamp = record.creationDate, text = record[Comment.keyText] as? String, postReference = record[Comment.keyPost] as? CKReference else {return nil}
         
-        guard let entity = NSEntityDescription.entityForName(Comment.keyComment, inManagedObjectContext: Stack.sharedStack.managedObjectContext) else {fatalError()}
+        guard let entity = NSEntityDescription.entityForName(Comment.keyType, inManagedObjectContext: Stack.sharedStack.managedObjectContext) else {fatalError()}
         
         self.init(entity: entity, insertIntoManagedObjectContext: context)
         

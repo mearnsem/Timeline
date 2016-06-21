@@ -25,11 +25,11 @@ class PostDetailTableViewController: UITableViewController, NSFetchedResultsCont
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 50
         
-//        if let font = UIFont(name: "Avenir", size: 14) {
-//            commentButton.setTitleTextAttributes([NSFontAttributeName: font], forState: .Normal)
-//            shareButton.setTitleTextAttributes([NSFontAttributeName: font], forState: .Normal)
-//            followPostButton.setTitleTextAttributes([NSFontAttributeName: font], forState: .Normal)
-//        }
+        //        if let font = UIFont(name: "Avenir", size: 14) {
+        //            commentButton.setTitleTextAttributes([NSFontAttributeName: font], forState: .Normal)
+        //            shareButton.setTitleTextAttributes([NSFontAttributeName: font], forState: .Normal)
+        //            followPostButton.setTitleTextAttributes([NSFontAttributeName: font], forState: .Normal)
+        //        }
         
         setupFetchedResultsController()
         
@@ -62,7 +62,16 @@ class PostDetailTableViewController: UITableViewController, NSFetchedResultsCont
     func updateWithPost(post: Post) {
         let image = UIImage(data: post.photoData ?? NSData())
         detailImageView.image = image
+        
         tableView.reloadData()
+        
+        PostController.sharedPostController.checkSubscriptionToPostComments(post) { (subscribed) in
+            if subscribed {
+                self.followPostButton.title = "Unfollow Post"
+            } else {
+                self.followPostButton.title = "Follow Post"
+            }
+        }
     }
     
     // MARK: - IBActions
@@ -95,7 +104,10 @@ class PostDetailTableViewController: UITableViewController, NSFetchedResultsCont
     }
     
     @IBAction func followButtonPressed(sender: AnyObject) {
-        
+        guard  let post = post else {return}
+        PostController.sharedPostController.togglePostCommentSubscription(post) { (success, isSubscribed, error) in
+            self.updateWithPost(post)
+        }
     }
     
     // MARK: - Table View Data Source

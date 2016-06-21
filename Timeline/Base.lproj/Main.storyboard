@@ -53,6 +53,12 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="feP-55-uxz">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <connections>
+                            <action selector="refresh:" destination="oeQ-mM-J3N" eventType="valueChanged" id="IjH-vG-He0"/>
+                        </connections>
+                    </refreshControl>
                     <connections>
                         <segue destination="UZl-tD-avD" kind="show" identifier="toPostDetailFromSearch" id="3ep-mU-3AA"/>
                     </connections>
