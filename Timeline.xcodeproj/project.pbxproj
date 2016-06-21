@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		40359A381D19D3AF00A97EE3 /* PostListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40359A371D19D3AF00A97EE3 /* PostListTableViewController.swift */; };
+		40359A3B1D19D40600A97EE3 /* PostDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40359A3A1D19D40600A97EE3 /* PostDetailTableViewController.swift */; };
+		40359A3D1D19D47B00A97EE3 /* AddPostTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40359A3C1D19D47B00A97EE3 /* AddPostTableViewController.swift */; };
+		40359A3F1D19D4B000A97EE3 /* SearchResultsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40359A3E1D19D4B000A97EE3 /* SearchResultsTableViewController.swift */; };
 		68658B281CF8A1D60016C5CD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68658B271CF8A1D60016C5CD /* AppDelegate.swift */; };
 		68658B2D1CF8A1D60016C5CD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68658B2B1CF8A1D60016C5CD /* Main.storyboard */; };
 		68658B2F1CF8A1D60016C5CD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68658B2E1CF8A1D60016C5CD /* Assets.xcassets */; };
@@ -33,6 +37,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		40359A371D19D3AF00A97EE3 /* PostListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostListTableViewController.swift; path = "View Controllers/PostListTableViewController.swift"; sourceTree = "<group>"; };
+		40359A3A1D19D40600A97EE3 /* PostDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostDetailTableViewController.swift; sourceTree = "<group>"; };
+		40359A3C1D19D47B00A97EE3 /* AddPostTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPostTableViewController.swift; sourceTree = "<group>"; };
+		40359A3E1D19D4B000A97EE3 /* SearchResultsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultsTableViewController.swift; sourceTree = "<group>"; };
 		68658B241CF8A1D60016C5CD /* Timeline.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Timeline.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		68658B271CF8A1D60016C5CD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		68658B2C1CF8A1D60016C5CD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -72,6 +80,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		40359A391D19D3B500A97EE3 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				40359A371D19D3AF00A97EE3 /* PostListTableViewController.swift */,
+				40359A3A1D19D40600A97EE3 /* PostDetailTableViewController.swift */,
+				40359A3C1D19D47B00A97EE3 /* AddPostTableViewController.swift */,
+				40359A3E1D19D4B000A97EE3 /* SearchResultsTableViewController.swift */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
 		68658B1B1CF8A1D60016C5CD = {
 			isa = PBXGroup;
 			children = (
@@ -97,6 +116,7 @@
 			children = (
 				68658B271CF8A1D60016C5CD /* AppDelegate.swift */,
 				68658B2B1CF8A1D60016C5CD /* Main.storyboard */,
+				40359A391D19D3B500A97EE3 /* View Controllers */,
 				68658B2E1CF8A1D60016C5CD /* Assets.xcassets */,
 				68658B301CF8A1D60016C5CD /* LaunchScreen.storyboard */,
 				68658B331CF8A1D60016C5CD /* Info.plist */,
@@ -254,6 +274,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				68658B281CF8A1D60016C5CD /* AppDelegate.swift in Sources */,
+				40359A381D19D3AF00A97EE3 /* PostListTableViewController.swift in Sources */,
+				40359A3F1D19D4B000A97EE3 /* SearchResultsTableViewController.swift in Sources */,
+				40359A3D1D19D47B00A97EE3 /* AddPostTableViewController.swift in Sources */,
+				40359A3B1D19D40600A97EE3 /* PostDetailTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
