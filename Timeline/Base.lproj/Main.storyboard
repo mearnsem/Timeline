@@ -51,6 +51,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="W39-bj-yrt" kind="show" identifier="toDetailFromSearch" id="veY-f5-gA5"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UwR-XF-aRW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -322,4 +325,7 @@
             <point key="canvasLocation" x="1240" y="1188"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="veY-f5-gA5"/>
+    </inferredMetricsTieBreakers>
 </document>
