@@ -10,25 +10,25 @@
         <scene sceneID="YS1-o8-hX5">
             <objects>
                 <tableViewController id="eAZ-z2-xKY" customClass="PostListTableViewController" customModule="Timeline" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="250" sectionHeaderHeight="28" sectionFooterHeight="28" id="g4V-Vj-Dbv">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="260" sectionHeaderHeight="28" sectionFooterHeight="28" id="g4V-Vj-Dbv">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="postCell" rowHeight="250" id="fEY-NR-wi9" customClass="PostTableViewCell" customModule="Timeline" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="92" width="600" height="250"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="postCell" rowHeight="260" id="fEY-NR-wi9" customClass="PostTableViewCell" customModule="Timeline" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="92" width="600" height="260"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fEY-NR-wi9" id="7Jb-ED-mQf">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="249"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="259"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ggr-qr-9C7">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ggr-qr-9C7">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="249"/>
                                         </imageView>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="ggr-qr-9C7" firstAttribute="top" secondItem="7Jb-ED-mQf" secondAttribute="top" id="Eme-Tv-BQD"/>
-                                        <constraint firstAttribute="bottom" secondItem="ggr-qr-9C7" secondAttribute="bottom" id="JaG-V9-iAk"/>
+                                        <constraint firstAttribute="bottom" secondItem="ggr-qr-9C7" secondAttribute="bottom" constant="10" id="JaG-V9-iAk"/>
                                         <constraint firstItem="ggr-qr-9C7" firstAttribute="leading" secondItem="7Jb-ED-mQf" secondAttribute="leading" id="vJD-ym-OzC"/>
                                         <constraint firstAttribute="trailing" secondItem="ggr-qr-9C7" secondAttribute="trailing" id="xR1-1q-4oB"/>
                                     </constraints>
@@ -191,7 +191,7 @@
                             <rect key="frame" x="0.0" y="64" width="600" height="294"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3gz-D8-fLc">
+                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3gz-D8-fLc">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="250"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="250" id="Cia-tq-hox"/>
