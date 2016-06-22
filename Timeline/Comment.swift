@@ -10,7 +10,7 @@ import Foundation
 import CoreData
 
 
-class Comment: NSManagedObject {
+class Comment: SyncableObject {
 
     convenience init(post: Post, text: String, timestamp: NSDate = NSDate(), context: NSManagedObjectContext = Stack.sharedStack.managedObjectContext) {
         guard let entity = NSEntityDescription.entityForName("Comment", inManagedObjectContext: context) else {
@@ -21,6 +21,7 @@ class Comment: NSManagedObject {
         
         self.post = post
         self.text = text
+        self.recordName = NSUUID().UUIDString
     }
 
 }
