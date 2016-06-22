@@ -10,7 +10,7 @@ import Foundation
 import CoreData
 
 
-class Post: SyncableObject {
+class Post: SyncableObject, SearchableRecord {
 
     convenience init(photo: NSData, timestamp: NSDate = NSDate(), context: NSManagedObjectContext = Stack.sharedStack.managedObjectContext) {
         guard let entity = NSEntityDescription.entityForName("Post", inManagedObjectContext: context) else {
@@ -20,7 +20,12 @@ class Post: SyncableObject {
         self.init(entity: entity, insertIntoManagedObjectContext: context)
         
         self.photoData = photo
+        self.timestamp = timestamp
         self.recordName = NSUUID().UUIDString
+    }
+    
+    func matchesSearchTerm(searchTerm: String) -> Bool {
+        return (self.comments?.array as? [Comment])?.filter({$0.matchesSearchTerm(searchTerm)}).count > 0
     }
 
 }

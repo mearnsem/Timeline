@@ -21,6 +21,7 @@
 		40359A661D19E22A00A97EE3 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40359A601D19E22A00A97EE3 /* Post.swift */; };
 		40359A681D19E65200A97EE3 /* PostController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40359A671D19E65200A97EE3 /* PostController.swift */; };
 		40359A6B1D19E9CF00A97EE3 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40359A6A1D19E9CF00A97EE3 /* PostTableViewCell.swift */; };
+		40359A981D1B365B00A97EE3 /* SearchableRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40359A971D1B365B00A97EE3 /* SearchableRecord.swift */; };
 		68658B281CF8A1D60016C5CD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68658B271CF8A1D60016C5CD /* AppDelegate.swift */; };
 		68658B2D1CF8A1D60016C5CD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68658B2B1CF8A1D60016C5CD /* Main.storyboard */; };
 		68658B2F1CF8A1D60016C5CD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68658B2E1CF8A1D60016C5CD /* Assets.xcassets */; };
@@ -61,6 +62,7 @@
 		40359A601D19E22A00A97EE3 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		40359A671D19E65200A97EE3 /* PostController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostController.swift; sourceTree = "<group>"; };
 		40359A6A1D19E9CF00A97EE3 /* PostTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
+		40359A971D1B365B00A97EE3 /* SearchableRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchableRecord.swift; sourceTree = "<group>"; };
 		68658B241CF8A1D60016C5CD /* Timeline.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Timeline.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		68658B271CF8A1D60016C5CD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		68658B2C1CF8A1D60016C5CD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -134,6 +136,14 @@
 			name = "Model Controllers";
 			sourceTree = "<group>";
 		};
+		40359A991D1B365F00A97EE3 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				40359A971D1B365B00A97EE3 /* SearchableRecord.swift */,
+			);
+			name = Protocols;
+			sourceTree = "<group>";
+		};
 		68658B1B1CF8A1D60016C5CD = {
 			isa = PBXGroup;
 			children = (
@@ -163,6 +173,7 @@
 				40359A5A1D19E0FA00A97EE3 /* Model Objects */,
 				40359A691D19E65500A97EE3 /* Model Controllers */,
 				40359A391D19D3B500A97EE3 /* View Controllers */,
+				40359A991D1B365F00A97EE3 /* Protocols */,
 				68658B2E1CF8A1D60016C5CD /* Assets.xcassets */,
 				68658B301CF8A1D60016C5CD /* LaunchScreen.storyboard */,
 				68658B331CF8A1D60016C5CD /* Info.plist */,
@@ -329,6 +340,7 @@
 				40359A651D19E22A00A97EE3 /* Post+CoreDataProperties.swift in Sources */,
 				40359A591D19E0F400A97EE3 /* Model.xcdatamodeld in Sources */,
 				40359A3D1D19D47B00A97EE3 /* AddPostTableViewController.swift in Sources */,
+				40359A981D1B365B00A97EE3 /* SearchableRecord.swift in Sources */,
 				40359A641D19E22A00A97EE3 /* SyncableObject.swift in Sources */,
 				40359A431D19D53D00A97EE3 /* Stack.swift in Sources */,
 				40359A681D19E65200A97EE3 /* PostController.swift in Sources */,

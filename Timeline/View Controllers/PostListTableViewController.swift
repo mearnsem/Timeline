@@ -9,14 +9,16 @@
 import UIKit
 import CoreData
 
-class PostListTableViewController: UITableViewController {
+class PostListTableViewController: UITableViewController, UISearchResultsUpdating {
     
     var fetchedResultsController: NSFetchedResultsController?
+    var searchController: UISearchController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupFetchedResultsController()
+        setupSearchController()
     }
     
     // MARK: - Fetched Results Controller
@@ -31,6 +33,31 @@ class PostListTableViewController: UITableViewController {
             try fetchedResultsController?.performFetch()
         } catch {
             print("Unable to create fetched results controller: \(error)")
+        }
+        
+        fetchedResultsController?.delegate = self
+        
+    }
+    
+    // MARK: - Search Controller
+    
+    func setupSearchController() {
+        let resultsController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("resultsVC")
+        searchController = UISearchController(searchResultsController: resultsController)
+        searchController?.searchResultsUpdater = self
+        searchController?.hidesNavigationBarDuringPresentation = true
+        searchController?.definesPresentationContext = true
+        searchController?.searchBar.sizeToFit()
+        searchController?.searchBar.placeholder = "Search for post"
+        tableView.tableHeaderView = searchController?.searchBar
+    }
+    
+    func updateSearchResultsForSearchController(searchController: UISearchController) {
+        if let resultsViewController = searchController.searchResultsController as? SearchResultsTableViewController,
+        let searchTerm = searchController.searchBar.text?.lowercaseString,
+            let posts = fetchedResultsController?.fetchedObjects as? [Post] {
+            resultsViewController.resultsArray = posts.filter({$0.matchesSearchTerm(searchTerm)})
+            resultsViewController.tableView.reloadData()
         }
         
     }
@@ -50,7 +77,7 @@ class PostListTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCellWithIdentifier("postCell", forIndexPath: indexPath) as? PostTableViewCell,
             post = fetchedResultsController?.objectAtIndexPath(indexPath) as? Post else {
-            return PostTableViewCell()
+                return PostTableViewCell()
         }
         
         cell.updateWithPost(post)
@@ -63,15 +90,12 @@ class PostListTableViewController: UITableViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "toPostDetail" {
             if let postDetailVC = segue.destinationViewController as? PostDetailTableViewController,
-            let indexPath = self.tableView.indexPathForSelectedRow,
+                let indexPath = self.tableView.indexPathForSelectedRow,
                 let post = fetchedResultsController?.objectAtIndexPath(indexPath) as? Post {
                 postDetailVC.post = post
             }
         }
     }
-    
-    
-    
 }
 
 extension PostListTableViewController: NSFetchedResultsControllerDelegate {

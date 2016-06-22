@@ -15,14 +15,19 @@ class PostDetailTableViewController: UITableViewController {
     var fetchedResultsController: NSFetchedResultsController?
     
     @IBOutlet weak var postImageView: UIImageView!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupFetchedResultsController()
         
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 40
+        
+        setupFetchedResultsController()
+        
+        if let post = post {
+            updateWithPost(post)
+        }
     }
     
     func updateWithPost(post: Post) {
@@ -40,14 +45,14 @@ class PostDetailTableViewController: UITableViewController {
         }
         
         let request = NSFetchRequest(entityName: "Comment")
-        let sortDescriptors = NSSortDescriptor(key: "timestamp", ascending: false)
-        let predicate = NSPredicate(format: "post == %@", [post])
+        let sortDescriptor = NSSortDescriptor(key: "timestamp", ascending: false)
+        let predicate = NSPredicate(format: "post == %@", argumentArray: [post])
         
-        request.sortDescriptors = [sortDescriptors]
+        request.sortDescriptors = [sortDescriptor]
         request.predicate = predicate
-        request.returnsObjectsAsFaults = false
         
         self.fetchedResultsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: Stack.sharedStack.managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
+        
         do {
             try fetchedResultsController?.performFetch()
         } catch {
@@ -55,7 +60,6 @@ class PostDetailTableViewController: UITableViewController {
         }
         
         fetchedResultsController?.delegate = self
-        
     }
     
     // MARK: - IBActions
@@ -77,6 +81,7 @@ class PostDetailTableViewController: UITableViewController {
             self.tableView.reloadData()
         }
         alertController.addAction(okAction)
+        presentViewController(alertController, animated: true, completion: nil)
     }
     
     @IBAction func shareButtonPressed(sender: AnyObject) {
@@ -86,19 +91,19 @@ class PostDetailTableViewController: UITableViewController {
     @IBAction func followButtonPressed(sender: AnyObject) {
         
     }
-
+    
     // MARK: - Table view data source
-
+    
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         guard let sections = fetchedResultsController?.sections else {return 0}
         return sections.count
     }
-
+    
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let sections = fetchedResultsController?.sections else {return 0}
         return sections[section].numberOfObjects
     }
-
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("commentCell", forIndexPath: indexPath)
         
@@ -107,16 +112,7 @@ class PostDetailTableViewController: UITableViewController {
         }
         return cell
     }
-        /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+    
 }
 
 extension PostDetailTableViewController: NSFetchedResultsControllerDelegate {

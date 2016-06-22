@@ -14,7 +14,7 @@ class PostTableViewCell: UITableViewCell {
     
     func updateWithPost(post: Post) {
         let image = UIImage(data: post.photoData)
-        postImageView?.image = image
+        postImageView.image = image
     }
     
     override func awakeFromNib() {

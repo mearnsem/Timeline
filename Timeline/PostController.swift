@@ -13,12 +13,6 @@ class PostController {
     
     static let sharedController = PostController()
     
-//    var posts: [Post] {
-//        let fetchRequest = NSFetchRequest(entityName: "Post")
-//        let moc = Stack.sharedStack.managedObjectContext
-//        return (try? moc.executeFetchRequest(fetchRequest)) as? [Post] ?? []
-//    }
-    
     func createPost(photo: UIImage, caption: String) {
         guard let data = UIImageJPEGRepresentation(photo, 0.8) else {return}
         let post = Post(photo: data)
