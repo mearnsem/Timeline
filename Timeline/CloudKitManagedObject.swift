@@ -18,8 +18,6 @@ import CoreData
     var recordType: String {get}
     var cloudKitRecord: CKRecord? {get}
     
-    func updateWithRecord(record: CKRecord)
-    
     init?(record: CKRecord, context: NSManagedObjectContext)
     
 }

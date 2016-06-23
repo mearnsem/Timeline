@@ -19,6 +19,25 @@ class PostListTableViewController: UITableViewController, UISearchResultsUpdatin
         
         setupFetchedResultsController()
         setupSearchController()
+        requestFullSync()
+    }
+
+    
+    @IBAction func refreshControl(sender: UIRefreshControl) {
+        requestFullSync { 
+            self.refreshControl?.endRefreshing()
+        }
+    }
+    
+    func requestFullSync(completion: (() -> Void)? = nil) {
+        UIApplication.sharedApplication().networkActivityIndicatorVisible = true
+        
+        PostController.sharedController.performFullSync { 
+            UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+            if let completion = completion {
+                completion()
+            }
+        }
     }
     
     // MARK: - Fetched Results Controller
